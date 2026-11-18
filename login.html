@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vinder – Log in</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="nav">
+  <a href="Homepage.html" class="logo"><span data-icon="heart"></span> Vinder</a>
+  <nav>
+    <a href="Homepage.html">Home</a>
+    <a href="Homepage.html#how-it-works">How It Works</a>
+    <a href="Homepage.html#safety">Safety</a>
+    <a href="Homepage.html#about">About</a>
+    <a href="login.html" class="btn-outline small">Login</a>
+  </nav>
+</header>
+
+<main class="auth">
+
+  <div class="auth-left">
+    <h1>Welcome back to <em>Vinder</em></h1>
+    <p>The modern dating platform for real people, meaningful connections, and relationships at your own pace.</p>
+    <div class="hero-cards small">
+      <div class="profile tilt-l"><div class="ph">E</div><div class="caption"><b>Ethan, 27 <i class="dot"></i></b><span>Hiking · Coffee · Travel</span></div><button class="like" data-icon="heart" aria-label="Like Ethan"></button></div>
+      <div class="profile tilt-r"><div class="ph">M</div><div class="caption"><b>Maya, 25 <i class="dot"></i></b><span>Books · Food · Music</span></div><button class="like" data-icon="heart" aria-label="Like Maya"></button></div>
+    </div>
+    <div class="feature"><span class="icon" data-icon="shield"></span><div><h3>Safe &amp; Secure</h3><p>Your privacy is a priority, with secure sign-in and strong data protection.</p></div></div>
+    <div class="feature"><span class="icon" data-icon="users"></span><div><h3>Real People</h3><p>Meet genuine, verified people looking for meaningful connections.</p></div></div>
+    <div class="feature"><span class="icon" data-icon="heart"></span><div><h3>Your Pace</h3><p>Get to know, chat, and connect in a way that feels right for you.</p></div></div>
+  </div>
+
+  <div class="card">
+    <div class="tabs">
+      <a href="login.html" class="on">Log in</a>
+      <a href="create.html">Create account</a>
+    </div>
+
+    <div class="panels">
+
+      <!-- LOG IN FORM -->
+      <form onsubmit="event.preventDefault(); alert('Logged in (demo)')">
+        <h2>Log in to your account</h2>
+        <p>Welcome back! Sign in to continue your Vinder journey.</p>
+
+        <label>Email</label>
+        <div class="field"><span data-icon="mail"></span><input type="email" placeholder="Enter your email" autofocus required></div>
+
+        <label>Password</label>
+        <div class="field">
+          <span data-icon="lock"></span>
+          <input type="password" placeholder="Enter your password" autocomplete="current-password" required>
+          <button type="button" data-icon="eye" aria-label="Show or hide password" onclick="var i=this.parentNode.querySelector('input'); i.type = i.type==='password' ? 'text' : 'password'"></button>
+        </div>
+
+        <div class="between">
+          <label class="check"><input type="checkbox" checked> Remember me</label>
+          <a href="#" class="link">Forgot password?</a>
+        </div>
+
+        <button class="btn full"><span data-icon="heart"></span> Log in</button>
+        <div class="or"><span>Or continue with</span></div>
+        <button type="button" class="btn-outline full">Continue with Google</button>
+        <button type="button" class="btn-outline full">Continue with Apple</button>
+
+        <div class="privacy">
+          <span data-icon="lock"></span>
+          <div><b>Your privacy is protected</b><small>Secure sign-in, encrypted data, and a dating experience built with your privacy in mind.</small></div>
+        </div>
+      </form>
+
+      <!-- CREATE ACCOUNT FORM -->
+      <form class="dim" onsubmit="event.preventDefault(); alert('Account created (demo)')">
+        <h2>Create your Vinder account</h2>
+        <p>Join for free and start meeting real people today.</p>
+
+        <label>First name</label>
+        <div class="field"><span data-icon="user"></span><input placeholder="Enter your first name" required></div>
+
+        <label>Email</label>
+        <div class="field"><span data-icon="mail"></span><input type="email" placeholder="Enter your email" required></div>
+
+        <label>Password</label>
+        <div class="field">
+          <span data-icon="lock"></span>
+          <input type="password" placeholder="Create a password" autocomplete="new-password" required>
+          <button type="button" data-icon="eye" aria-label="Show or hide password" onclick="var i=this.parentNode.querySelector('input'); i.type = i.type==='password' ? 'text' : 'password'"></button>
+        </div>
+
+        <label>Date of birth</label>
+        <div class="dob">
+          <select required>
+            <option value="" selected disabled>Month</option>
+            <option>January</option><option>February</option><option>March</option>
+            <option>April</option><option>May</option><option>June</option>
+            <option>July</option><option>August</option><option>September</option>
+            <option>October</option><option>November</option><option>December</option>
+          </select>
+          <select class="day" required><option value="" selected disabled>Day</option></select>
+          <select class="year" required><option value="" selected disabled>Year</option></select>
+        </div>
+
+        <button class="btn full"><span data-icon="heart"></span> Create account</button>
+        <p class="legal">By creating an account, you agree to Vinder's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
+      </form>
+
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div>
+    <a href="Homepage.html" class="logo light"><span data-icon="heart"></span> Vinder</a>
+    <p>Real people. Meaningful connections.</p>
+  </div>
+  <div><h4>Company</h4><a href="#">About Vinder</a><a href="#">Careers</a><a href="#">Press</a></div>
+  <div><h4>Help &amp; Support</h4><a href="#">Help Center</a><a href="#">Safety Tips</a><a href="#">Contact Us</a></div>
+  <div><h4>Legal</h4><a href="#">Terms of Service</a><a href="#">Privacy Policy</a><a href="#">Cookie Policy</a></div>
+  <div class="social">
+    <div><a href="#">Instagram</a><a href="#">X</a><a href="#">Facebook</a><a href="#">YouTube</a></div>
+    <small>© 2025 Vinder, Inc. All rights reserved.</small>
+  </div>
+</footer>
+
+<script src="icons.js"></script>
+<script>
+  // Fill the Day and Year dropdowns
+  for (let d = 1; d <= 31; d++) document.querySelector('.day').add(new Option(d, d));
+  for (let y = new Date().getFullYear() - 18; y >= 1926; y--) document.querySelector('.year').add(new Option(y, y));
+</script>
+
+</body>
+</html>
