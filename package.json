@@ -7,7 +7,10 @@
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
     "preview": "vite preview --host 127.0.0.1",
-    "test": "node --test"
+    "test": "node --test",
+    "server": "node server/app.mjs",
+    "db:check": "node server/check-db.mjs",
+    "dev:all": "node scripts/dev.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",

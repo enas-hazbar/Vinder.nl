@@ -80,35 +80,37 @@ export default function MyProfile({ profile, onSave, onNotify }) {
     [photos[index], photos[target]] = [photos[target], photos[index]];
     return { ...current, photos };
   });
-  const submit = event => {
+  const submit = async event => {
     event.preventDefault();
     const name = draft.name.trim();
     const age = Number(draft.age);
-    if (!name || name.length > 40 || !Number.isInteger(age) || age < 18 || age > 90) {
-      setError('Please enter a display name and an age between 18 and 90.');
+    if (!name || name.length > 40 || !Number.isInteger(age) || age < 29 || age > 45) {
+      setError('Please enter a display name and an age between 29 and 45.');
       return;
     }
-    const next = { ...draft, name, age, city: draft.city.trim().slice(0, 50), work: draft.work.trim().slice(0, 70), bio: draft.bio.trim().slice(0, 320) };
-    if (!onSave(next)) return setError('Could not save the profile. Your browser storage may be full. Try fewer photos.');
-    setError('');
-    onNotify('Your demo profile has been saved!');
+    const next = { ...draft, listed:Boolean(draft.listed), name, age, city: draft.city.trim().slice(0, 50), work: draft.work.trim().slice(0, 70), bio: draft.bio.trim().slice(0, 320) };
+    try {
+      await onSave(next);
+      setError('');
+      onNotify(next.listed ? 'Saved! Your fictional profile is now visible to other accounts.' : 'Saved! Your fictional profile is private.');
+    } catch(e) {setError(e.message || 'Could not save profile. Try smaller images.');}
   };
-  const reset = () => {
-    if (!window.confirm('Reset your fictional profile and remove all its saved demo pictures?')) return;
+  const reset = async () => {
+    if (!window.confirm('Reset your fictional profile and remove all its saved  pictures?')) return;
     const blank = { ...defaultMyProfile, interests: [...defaultMyProfile.interests], photos: [] };
-    if (onSave(blank)) { setDraft(blank); setError(''); onNotify('Demo profile reset.'); }
-    else setError('Could not reset demo profile.');
+    try {await onSave(blank); setDraft(blank); setError(''); onNotify('profile reset.');}
+    catch(e){setError(e.message || 'Could not reset  profile.');}
   };
 
   const popularHobbies = availableInterests.filter(item => !draft.interests.some(h => h.toLowerCase() === item.toLowerCase())).slice(0, 10);
   return <main className="my-profile-page">
     <div className="my-profile-hero">
-      <div><div className="eyebrow"><Pencil size={15}/> MY VINDER PROFILE</div><h1>Make your profile <em>you.</em></h1><p>Update your pictures, what you do, your hobbies and what you're looking for. This is a fictional demo — please don't enter sensitive personal information.</p></div>
+      <div><div className="eyebrow"><Pencil size={15}/> MY VINDER PROFILE</div><h1>Make your profile <em>you.</em></h1><p>Build a fictional member account, then choose whether it appears in other accounts' Discover results. Use no real personal details.</p></div>
       <div className="profile-hero-badge"><Heart size={31}/><span>Be yourself.<br/><strong>Find your people.</strong></span></div>
     </div>
     <form onSubmit={submit} className="profile-editor-layout">
       <section className="profile-editor-main">
-        <div className="editor-panel"><div className="editor-section-title"><div className="editor-icon"><Camera size={23}/></div><div><h2>Your photos</h2><p>Add up to 6 fictional/demo photos. The first picture becomes your profile avatar.</p></div></div>
+        <div className="editor-panel"><div className="editor-section-title"><div className="editor-icon"><Camera size={23}/></div><div><h2>Your photos</h2><p>Add up to 6 fictional photos. The first picture becomes your profile avatar.</p></div></div>
           <div className="photo-upload-grid">
             {draft.photos.map((photo, index) => <div className="your-photo" key={`${index}-${photo.slice(-16)}`}>
               <img src={photo} alt={`Your uploaded demo picture ${index + 1}`}/>
@@ -117,29 +119,33 @@ export default function MyProfile({ profile, onSave, onNotify }) {
             </div>)}
             {draft.photos.length < MAX_PHOTOS && <button type="button" className="add-photo-tile" onClick={() => photoInput.current?.click()} disabled={savingImages}><ImagePlus size={27}/><strong>{savingImages ? 'Loading…' : 'Add photos'}</strong><small>JPG, PNG or WebP</small></button>}
           </div>
-          <input ref={photoInput} type="file" accept="image/jpeg,image/png,image/webp" multiple onChange={upload} className="sr-only" aria-label="Choose demo profile images"/>
-          <p className="helper-text">Photos are resized and stored only in this browser for your demo. They are not uploaded to Netlab, a server or other users.</p>
+          <input ref={photoInput} type="file" accept="image/jpeg,image/png,image/webp" multiple onChange={upload} className="sr-only" aria-label="Choose profile images"/>
+          <p className="helper-text">Upload up to 6 photos. Your first photo will be your main profile picture.</p>
         </div>
         <div className="editor-panel"><div className="editor-section-title"><div className="editor-icon"><UserRound size={23}/></div><div><h2>About you</h2><p>The details someone would see when they visit your profile.</p></div></div>
           <div className="editor-form-grid">
             <label>Display name <input required maxLength={40} value={draft.name} onChange={e => update('name', e.target.value)} placeholder="e.g. Jamie"/></label>
-            <label>Age (18+) <input type="number" min="18" max="90" required value={draft.age} onChange={e => update('age', e.target.value)}/></label>
+            <label>Age (29–45) <input type="number" min="29" max="45" required value={draft.age} onChange={e => update('age', e.target.value)}/></label>
             <label>City <input maxLength={50} value={draft.city} onChange={e => update('city', e.target.value)} placeholder="e.g. Eindhoven"/></label>
             <label>What do you do? <input maxLength={70} value={draft.work} onChange={e => update('work', e.target.value)} placeholder="Student, developer, nurse…"/></label>
             <label className="wide-field">About me <textarea rows={4} maxLength={320} value={draft.bio} onChange={e => update('bio', e.target.value)} placeholder="Tell your fictional matches a little about yourself…"/><small>{draft.bio.length}/320 characters</small></label>
             <label className="wide-field">What are you looking for? <select value={draft.goal} onChange={e => update('goal', e.target.value)}><option value="Relationship">Long-term relationship</option><option value="Open to dating">Open to dating</option><option value="Friendship">Friendship and connections</option></select></label>
           </div>
         </div>
-        <div className="editor-panel"><div className="editor-section-title"><div className="editor-icon"><Heart size={23}/></div><div><h2>Hobbies & interests</h2><p>Type any hobby you like, or choose from popular examples. These affect demo match scores.</p></div></div>
+        <div className="editor-panel"><div className="editor-section-title"><div className="editor-icon"><Heart size={23}/></div><div><h2>Hobbies & interests</h2><p>Type any hobby you like, or choose from popular examples. These affect match scores.</p></div></div>
           <div className="interests-editor">{draft.interests.map(hobby => <button type="button" className="selected-hobby" key={hobby} onClick={() => update('interests', draft.interests.filter(x => x !== hobby))}>{hobby}<X size={14}/></button>)}</div>
           <div className="hobby-add-row"><input value={newHobby} maxLength={24} placeholder="Add a hobby, e.g. Horse riding" aria-label="New hobby or interest" onChange={e => setNewHobby(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); addHobby(); } }}/><button type="button" className="outline-button" onClick={() => addHobby()}>+ Add hobby</button></div>
           <div className="hobby-suggestions"><small>Try adding:</small>{popularHobbies.map(hobby => <button type="button" key={hobby} onClick={() => addHobby(hobby)}>{hobby} +</button>)}</div>
         </div>
+        <div className="editor-panel publish-panel">
+          <div className="editor-section-title"><div className="editor-icon"><ShieldCheck size={23}/></div><div><h2>Discover visibility</h2><p>Only you control whether this fictional profile is shown to other accounts.</p></div></div>
+          <label className="publish-toggle"><input type="checkbox" checked={Boolean(draft.listed)} onChange={e=>update('listed',e.target.checked)}/><span>Show this fictional profile in Discover</span></label>
+          <p className="helper-text">To publish, add a city, a bio, and at least one fictional or authorised photo. Your email and password are never shown on member cards. Your own profile will not appear in your Discover results.</p>
+        </div>
         {error && <p className="editor-error" role="alert">{error}</p>}
-        <div className="editor-save-row"><button type="submit" className="pink-button" disabled={savingImages}><Save size={19}/> Save profile changes</button><button type="button" className="editor-reset" onClick={reset}><RotateCcw size={16}/> Reset demo profile</button></div>
+        <div className="editor-save-row"><button type="submit" className="pink-button" disabled={savingImages}><Save size={19}/> Save profile changes</button><button type="button" className="editor-reset" onClick={reset}><RotateCcw size={16}/> Reset  profile</button></div>
       </section>
       <aside className="profile-editor-side"><div className="your-profile-preview"><h3><Check size={18}/> Live preview</h3><div className="your-preview-image">{draft.photos.length ? <img src={draft.photos[0]} alt="Your cover picture preview"/> : <div className="your-placeholder"><UserRound size={55}/><span>Add a profile photo</span></div>}</div><div className="preview-content"><h2>{draft.name || 'Your name'}, {draft.age || '—'}</h2><p>{draft.city || 'Your city'} · {draft.work || 'Your occupation'}</p><p>{draft.bio || 'Your bio will appear here…'}</p><div className="tags">{draft.interests.map(hobby => <span className="tag" key={hobby}>{hobby}</span>)}</div></div></div>
-        <div className="preview-privacy-note"><ShieldCheck size={23}/><div><strong>Fictional project only</strong><p>No real accounts, ID documents or verification. Demo photos and edits remain in this browser until cleared.</p></div></div>
       </aside>
     </form>
   </main>;

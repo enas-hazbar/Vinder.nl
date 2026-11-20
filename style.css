@@ -122,4 +122,93 @@ select{height:44px;border:1.5px solid #d9d4de;border-radius:10px;padding:0 8px;f
   .panels form+form{border:0;border-top:1px solid var(--line);padding-top:24px}
   .nav nav{gap:14px;font-size:13px}
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}/* The source included two full forms on each auth page. Only show the active tab's form. */
+.panels form.dim{display:none}
+.lab-banner{text-align:center;background:#fff3f8;color:#8d2855;padding:7px 12px;font:600 12px/1.35 system-ui,sans-serif;border-bottom:1px solid #f2d4df}
+
+/* Millennial landing-page improvements */
+.hero-millennial{min-height:620px;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(30px,4vw,90px);padding-block:85px 95px;background:radial-gradient(circle at 84% 23%,#ffe3f0 0,transparent 40%),linear-gradient(135deg,#fff4f8,#fbe5ef)}
+.hero-millennial .eyebrow,.how-steps .eyebrow{color:var(--pink);font-size:12px;letter-spacing:.17em;font-weight:800;margin:0 0 20px;line-height:1.5}
+.hero-millennial h1{font-size:clamp(64px,7.1vw,112px);font-weight:900;line-height:.98;max-width:800px;letter-spacing:-.055em;margin:0 0 30px;color:var(--navy)}
+.hero-millennial h1 em{display:block;font-style:normal;white-space:nowrap}
+.hero-millennial .hero-lead{font-size:clamp(18px,1.6vw,22px);font-weight:500;max-width:600px;line-height:1.5;margin:0 0 12px}
+.hero-millennial .hero-note{font-size:13px;line-height:1.6;max-width:540px;color:#725d76;margin:0}
+.hero-millennial .hero-cta{min-height:55px;padding:13px 26px;font-size:15px}
+.hero-millennial .hero-micro{font-size:12px;letter-spacing:.06em;font-weight:700;color:#99798f;margin-top:26px}
+.hero-millennial .hero-cards{align-items:center;gap:12px}
+.hero-millennial .hero-cards .profile{width:clamp(155px,15vw,260px);height:clamp(235px,20vw,340px)}
+.hero-millennial .profile .like{display:grid;place-items:center}
+.how-steps{padding:90px max(5vw,24px) 98px;background:#fff;scroll-margin-top:65px}
+.steps-heading{max-width:920px;margin:0 auto 44px;text-align:center}
+.steps-heading h2{font-size:clamp(34px,4.1vw,60px);line-height:1.12;letter-spacing:-.04em}
+.steps-heading h2 em{font-style:normal}
+.steps-heading>p{max-width:740px;margin:20px auto 24px;font-size:17px;line-height:1.65}
+.steps-jump{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:9px}
+.steps-jump a{display:inline-flex;padding:11px 16px;background:#fff4f8;color:#b12b63;border:1px solid #f1d3e0;border-radius:24px;font-size:13px;font-weight:700;transition:background .2s}
+.steps-jump a:hover{background:#fce0eb}
+.steps-timeline{max-width:1040px;margin:0 auto;display:grid;gap:18px}
+.step-card{display:grid;grid-template-columns:90px minmax(0,1fr) 85px;gap:25px;align-items:center;padding:35px;border-radius:25px;background:linear-gradient(100deg,#fff9fc,#fff2f8);border:1px solid #f3dfe9;box-shadow:0 8px 28px #3f12320b;scroll-margin-top:96px}
+.step-number{color:var(--pink);font-size:clamp(34px,4vw,55px);letter-spacing:-.05em;font-weight:900;align-self:start;line-height:1}
+.step-kicker{font-size:11px;letter-spacing:.1em;font-weight:800;color:var(--pink);text-transform:uppercase}
+.step-body h3{font-size:25px;margin:7px 0 10px}
+.step-body p{line-height:1.65;font-size:15px;margin:0 0 15px;max-width:700px}
+.step-link{font-size:14px;font-weight:800;color:var(--pink);display:inline-flex;gap:6px}
+.step-link:hover{text-decoration:underline}
+.step-art{width:76px;height:76px;border-radius:24px;background:#f8dbe9;display:grid;place-items:center;color:var(--pink)}
+.step-art svg{width:35px;height:35px}
+.steps-end{text-align:center;padding-top:42px}
+.steps-end p{font-size:20px;font-weight:800;color:var(--navy)}
+/* The login and registration pages each show a single form, so do not leave a half-width form. */
+.panels{grid-template-columns:minmax(0,1fr)}
+.panels form:not(.dim){padding:0 14px;max-width:600px;margin-inline:auto;width:100%}
+.auth-left .hero-cards .profile img{display:block}
+.auth-left h1{font-size:clamp(35px,4vw,55px)}
+
+/* Contact and service-status pages */
+
+.contact-page {
+  min-height: 75vh;
+  padding: 85px 8vw;
+  background: linear-gradient(180deg, #fdeaf1, #fff);
+}
+
+.contact-page h1 {
+  font-size: clamp(36px, 5vw, 58px);
+  margin: 14px 0;
+}
+
+.contact-page > p {
+  line-height: 1.7;
+}
+
+.contact-card {
+  background: white;
+  max-width: 650px;
+  padding: 35px;
+  margin-top: 35px;
+  border: 1px solid #eadbe3;
+  border-radius: 20px;
+  box-shadow: 0 12px 35px rgba(60, 20, 60, 0.08);
+}
+
+.contact-card h2 {
+  margin-bottom: 18px;
+}
+
+.contact-card a {
+  color: #c9306b;
+  font-weight: 600;
+}
+
+.error-log {
+  background: #f7f7fa;
+  padding: 18px;
+  margin-top: 20px;
+  border-radius: 10px;
+  overflow-wrap: anywhere;
+  font-family: monospace;
+  font-size: 13px;
+}
+@media(max-width:1020px){.hero-millennial{min-height:unset;grid-template-columns:1fr 1fr;gap:20px;padding:70px 5vw}.hero-millennial h1{font-size:clamp(59px,6.5vw,82px)}.hero-millennial .hero-cards .profile{width:clamp(145px,19vw,210px);height:260px}}
+@media(max-width:720px){.hero-millennial{grid-template-columns:1fr;padding:65px 6vw 72px}.hero-millennial h1{font-size:clamp(57px,11vw,77px)}.hero-millennial .hero-cards{margin-top:15px}.hero-millennial .hero-cards .profile{width:42vw;max-width:210px;height:230px}.how-steps{padding:70px 5vw}.step-card{grid-template-columns:53px minmax(0,1fr);gap:13px;padding:24px}.step-number{font-size:31px}.step-art{display:none}.step-body h3{font-size:22px}}
+@media(max-width:450px){.hero-millennial h1{font-size:clamp(48px,12vw,65px)}.hero-millennial .hero-lead{font-size:17px}.step-card{grid-template-columns:1fr;gap:6px}.step-number{font-size:30px}.nav{height:auto;min-height:64px;gap:8px;flex-wrap:wrap}.nav nav{gap:11px;flex-wrap:wrap;padding:6px 0}}

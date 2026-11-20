@@ -9,12 +9,12 @@
 <body>
 
 <header class="nav">
-  <a href="Homepage.html" class="logo"><span data-icon="heart"></span> Vinder</a>
+  <a href="index.html" class="logo"><span data-icon="heart"></span> Vinder</a>
   <nav>
-    <a href="Homepage.html">Home</a>
-    <a href="Homepage.html#how-it-works">How It Works</a>
-    <a href="Homepage.html#safety">Safety</a>
-    <a href="Homepage.html#about">About</a>
+    <a href="index.html">Home</a>
+    <a href="index.html#how-it-works">How It Works</a>
+    <a href="index.html#safety">Safety</a>
+    <a href="index.html#about">About</a>
     <a href="login.html" class="btn-outline small">Login</a>
   </nav>
 </header>
@@ -23,13 +23,12 @@
 
   <div class="auth-left">
     <h1>Welcome back to <em>Vinder</em></h1>
-    <p>The modern dating platform for real people, meaningful connections, and relationships at your own pace.</p>
+    <p>A welcoming dating experience for millennials who value shared experiences and meaningful connections.</p>
     <div class="hero-cards small">
-      <div class="profile tilt-l"><div class="ph">E</div><div class="caption"><b>Ethan, 27 <i class="dot"></i></b><span>Hiking · Coffee · Travel</span></div><button class="like" data-icon="heart" aria-label="Like Ethan"></button></div>
-      <div class="profile tilt-r"><div class="ph">M</div><div class="caption"><b>Maya, 25 <i class="dot"></i></b><span>Books · Food · Music</span></div><button class="like" data-icon="heart" aria-label="Like Maya"></button></div>
+      <div class="profile tilt-l"><img src="/images/ethan.jpg" alt="Fictional portrait of Ethan"><div class="caption"><b>Ethan, 37 <i class="dot"></i></b><span>Hiking · Coffee · Travel</span></div><span class="like" data-icon="heart" aria-hidden="true"></span></div>
+      <div class="profile tilt-r"><img src="/images/maya.jpg" alt="Fictional portrait of Maya"><div class="caption"><b>Maya, 45 <i class="dot"></i></b><span>Books · Food · Music</span></div><span class="like" data-icon="heart" aria-hidden="true"></span></div>
     </div>
-    <div class="feature"><span class="icon" data-icon="shield"></span><div><h3>Safe &amp; Secure</h3><p>Your privacy is a priority, with secure sign-in and strong data protection.</p></div></div>
-    <div class="feature"><span class="icon" data-icon="users"></span><div><h3>Real People</h3><p>Meet genuine, verified people looking for meaningful connections.</p></div></div>
+    <div class="feature"><span class="icon" data-icon="users"></span><div><h3>Fictional People</h3><p>Discover fictional millennial profiles and  match scores.</p></div></div>
     <div class="feature"><span class="icon" data-icon="heart"></span><div><h3>Your Pace</h3><p>Get to know, chat, and connect in a way that feels right for you.</p></div></div>
   </div>
 
@@ -42,7 +41,7 @@
     <div class="panels">
 
       <!-- LOG IN FORM -->
-      <form onsubmit="event.preventDefault(); alert('Logged in (demo)')">
+      <form>
         <h2>Log in to your account</h2>
         <p>Welcome back! Sign in to continue your Vinder journey.</p>
 
@@ -62,20 +61,12 @@
         </div>
 
         <button class="btn full"><span data-icon="heart"></span> Log in</button>
-        <div class="or"><span>Or continue with</span></div>
-        <button type="button" class="btn-outline full">Continue with Google</button>
-        <button type="button" class="btn-outline full">Continue with Apple</button>
-
-        <div class="privacy">
-          <span data-icon="lock"></span>
-          <div><b>Your privacy is protected</b><small>Secure sign-in, encrypted data, and a dating experience built with your privacy in mind.</small></div>
-        </div>
       </form>
 
       <!-- CREATE ACCOUNT FORM -->
-      <form class="dim" onsubmit="event.preventDefault(); alert('Account created (demo)')">
+      <form class="dim">
         <h2>Create your Vinder account</h2>
-        <p>Join for free and start meeting real people today.</p>
+        <p>A dating experience for millennials (born 1981–1996).</p>
 
         <label>First name</label>
         <div class="field"><span data-icon="user"></span><input placeholder="Enter your first name" required></div>
@@ -114,19 +105,20 @@
 
 <footer class="footer">
   <div>
-    <a href="Homepage.html" class="logo light"><span data-icon="heart"></span> Vinder</a>
-    <p>Real people. Meaningful connections.</p>
+    <a href="index.html" class="logo light"><span data-icon="heart"></span> Vinder</a>
+    <p>Fictional profiles.</p>
   </div>
   <div><h4>Company</h4><a href="#">About Vinder</a><a href="#">Careers</a><a href="#">Press</a></div>
-  <div><h4>Help &amp; Support</h4><a href="#">Help Center</a><a href="#">Safety Tips</a><a href="#">Contact Us</a></div>
+  <div><h4>Help &amp; Support</h4><a href="#">Help Center</a><a href="#">Safety Tips</a><a href="contact.html">Contact Us</a></div>
   <div><h4>Legal</h4><a href="#">Terms of Service</a><a href="#">Privacy Policy</a><a href="#">Cookie Policy</a></div>
   <div class="social">
     <div><a href="#">Instagram</a><a href="#">X</a><a href="#">Facebook</a><a href="#">YouTube</a></div>
-    <small>© 2025 Vinder, Inc. All rights reserved.</small>
+    <small>© 2026 Vinder</small>
   </div>
 </footer>
 
 <script src="icons.js"></script>
+<script type="module" src="/auth.js"></script>
 <script>
   // Fill the Day and Year dropdowns
   for (let d = 1; d <= 31; d++) document.querySelector('.day').add(new Option(d, d));

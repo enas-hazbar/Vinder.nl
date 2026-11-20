@@ -1,0 +1,25 @@
+# Example: replace vinder.test with your authorised lab-only hostname.
+# For real test logins across machines, configure Nginx TLS with a trusted lab CA.
+server {
+    listen 80;
+    server_name vinder.test;
+    root /var/www/vinder;
+    index index.html;
+    server_tokens off;
+    access_log /var/log/nginx/vinder_access.log;
+    error_log /var/log/nginx/vinder_error.log;
+    add_header X-Content-Type-Options nosniff always;
+    add_header X-Frame-Options DENY always;
+    add_header Referrer-Policy strict-origin-when-cross-origin always;
+    # Disable caching of authenticated dashboard document
+    location = /dashboard.html { add_header Cache-Control "no-store"; try_files $uri =404; }
+    location /api/ {
+        proxy_pass http://127.0.0.1:3001;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 15s;
+        client_max_body_size 5m;
+    }
+    location / { try_files $uri $uri/ =404; }
+    location ~ /\. { deny all; }
+}

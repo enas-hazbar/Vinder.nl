@@ -26,9 +26,9 @@ export default function ProfileModal({ profile, liked, onClose, onLike, score })
         <div className="modal-inner"><h2 id="profile-dialog-title">{profile.name}, {profile.age} {profile.verified && <BadgeCheck size={20} className="verified" aria-label="Demo badge"/>}</h2>
           <p className="modal-sub"><MapPin size={17}/>{profile.city} · {profile.distance} km away</p>
           <p className="modal-sub"><BriefcaseBusiness size={17}/>{profile.work}</p>
-          <div className="compatibility-pill">{score ?? profile.compatibility}% demo compatibility</div>
+          <div className="compatibility-pill">{score ?? profile.compatibility}%  compatibility</div>
           <h3>About me</h3><p>{profile.bio}</p><h3>My hobbies & interests</h3><div className="tags">{profile.interests.map(i=><span className="tag" key={i}>{i}</span>)}</div>
-          <p className="gallery-demo-disclaimer">This is a fictional profile. The photo gallery contains demo placeholders and does not represent a real user account.</p>
+          <p className="gallery-demo-disclaimer">This is a fictional profile. The photo gallery contains placeholders and does not represent a real user account.</p>
           <button type="button" className="pink-button modal-like" onClick={()=>onLike(profile.id)}><Heart size={17} fill={liked?'currentColor':'none'}/>{liked?'Liked — undo like':'Like '+profile.name}</button>
         </div>
       </section>

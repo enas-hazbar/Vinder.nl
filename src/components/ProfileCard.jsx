@@ -9,7 +9,7 @@ export default function ProfileCard({ profile, onLike, onPass, onView, isLiked, 
     <article className="profile-card">
       <div className="profile-photo">
         <button type="button" className="photo-open" onClick={() => onView(profile)} aria-label={`View ${profile.name}'s full photo gallery`}>
-          <img src={gallery[photoIndex]} alt={`Fictional demo photo ${photoIndex + 1} of ${gallery.length} for ${profile.name}`} loading="lazy" />
+          <img src={gallery[photoIndex]} alt={`Fictional  photo ${photoIndex + 1} of ${gallery.length} for ${profile.name}`} loading="lazy" />
         </button>
         {gallery.length > 1 && <>
           <span className="photo-count"><Camera size={12}/> {photoIndex + 1}/{gallery.length}</span>
@@ -30,7 +30,7 @@ export default function ProfileCard({ profile, onLike, onPass, onView, isLiked, 
           <button type="button" className={`pink-button ${isLiked ? 'liked-button' : ''}`} onClick={() => onLike(profile.id)}><Heart size={15} fill={isLiked?'currentColor':'none'}/> {isLiked ? 'Liked' : 'Like'}</button>
         </div>
         <button type="button" className="view-button" onClick={() => onView(profile)}>View Photos & Profile <span aria-hidden="true">→</span></button>
-        {typeof score === 'number' && <small className="profile-score">{score}% demo match for your interests</small>}
+        {typeof score === 'number' && <small className="profile-score">{score}%  match for your interests</small>}
       </div>
     </article>
   );

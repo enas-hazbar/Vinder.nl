@@ -1,14 +1,143 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#fff5fa" />
-    <meta name="description" content="Vinder fictional dating-app demonstration for a university cybersecurity project." />
-    <title>Discover Matches | Vinder Demo</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vinder – Find a connection that feels right</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="nav">
+  <a href="index.html" class="logo"><span data-icon="heart"></span> Vinder</a>
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="index.html#how-it-works">How It Works</a>
+    <a href="index.html#safety">Safety</a>
+    <a href="index.html#about">About</a>
+    <a href="login.html" class="btn-outline small">Login</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero hero-millennial" id="home">
+    <div class="hero-text">
+      <p class="eyebrow">A SPACE FOR MILLENNIAL CONNECTIONS</p>
+      <h1>Find your <em>match.</em></h1>
+      <p class="hero-lead">A fresh chapter, a meaningful connection. Discover people who understand your life, your interests, and what matters to you.</p>
+      <p class="hero-note">Designed for millennials (born 1981–1996).</p>
+      <div class="row">
+        <a href="create.html" class="btn hero-cta"><span data-icon="heart"></span> Find Your Match</a>
+        <a href="#how-it-works" class="btn-outline hero-cta"><span data-icon="play"></span> How It Works ↓</a>
+      </div>
+      <p class="hero-micro">Discover · Connect · Enjoy the journey</p>
+    </div>
+    <div class="hero-cards" aria-label="Fictional millennial member previews">
+      <div class="profile tilt-l">
+        <img src="/images/ethan.jpg" alt="Fictional profile preview of Ethan" loading="eager">
+        <div class="caption"><b>Ethan, 37 <i class="dot"></i></b><span>Hiking · Coffee · Travel</span></div>
+        <span class="like" aria-hidden="true" data-icon="heart"></span>
+      </div>
+      <div class="profile tilt-r">
+        <img src="/images/maya.jpg" alt="Fictional profile preview of Maya" loading="eager">
+        <div class="caption"><b>Maya, 45 <i class="dot"></i></b><span>Books · Food · Music</span></div>
+        <span class="like" aria-hidden="true" data-icon="heart"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS: a real scrollable 3-step guide -->
+  <section id="how-it-works" class="how-steps" aria-labelledby="how-heading">
+    <div class="steps-heading">
+      <span class="eyebrow">HOW IT WORKS</span>
+      <h2 id="how-heading">Good connections start with <em>three simple steps.</em></h2>
+      <nav class="steps-jump" aria-label="Jump to a step">
+        <a href="#step-1">01 Create a profile</a>
+        <a href="#step-2">02 Find your match</a>
+        <a href="#step-3">03 Start a conversation</a>
+      </nav>
+    </div>
+    <div class="steps-timeline">
+      <article id="step-1" class="step-card">
+        <div class="step-number">01</div>
+        <div class="step-body">
+          <span class="step-kicker">Your first step</span>
+          <h3>Create your profile</h3>
+          <p>Sign up with a fictional test account, choose your interests, and describe the kind of connection you're looking for. You can add  pictures to personalise your profile.</p>
+          <a class="step-link" href="create.html">Create a profile →</a>
+        </div>
+        <div class="step-art" aria-hidden="true"><span data-icon="user"></span></div>
+      </article>
+      <article id="step-2" class="step-card">
+        <div class="step-number">02</div>
+        <div class="step-body">
+          <span class="step-kicker">Your preferences matter</span>
+          <h3>Explore compatible matches</h3>
+          <p>After signing in, use the Discover filters for age, city, distance, interests and relationship goals. Browse fictional millennial profiles, see photo galleries, and save the people who catch your eye.</p>
+          <a class="step-link" href="login.html">Sign in to discover →</a>
+        </div>
+        <div class="step-art" aria-hidden="true"><span data-icon="sliders"></span></div>
+      </article>
+      <article id="step-3" class="step-card">
+        <div class="step-number">03</div>
+        <div class="step-body">
+          <span class="step-kicker">Keep the conversation going</span>
+          <h3>Start connecting</h3>
+          <p>Use the fictional messaging  to explore how conversations and saved matches work.</p>
+          <a class="step-link" href="login.html">Try the messaging fictional →</a>
+        </div>
+        <div class="step-art" aria-hidden="true"><span data-icon="chat"></span></div>
+      </article>
+    </div>
+    <div class="steps-end"><p>Ready for a meaningful match?</p><a href="create.html" class="btn">Join Vinder <span data-icon="arrow"></span></a></div>
+  </section>
+
+  <!-- WHY VINDER / ABOUT -->
+  <section id="about" class="band tint">
+    <div class="band-title"><h2>Why Vinder?</h2><p>A fictional dating experience inspired by millennial life.</p></div>
+    <div class="feature plain"><span class="icon-line" data-icon="heart"></span><div><h3>Meaningful Matches</h3><p>Our fictional matching  helps you explore shared interests and meaningful preferences.</p></div></div>
+    <div class="feature plain"><span class="icon-line" data-icon="shield"></span><div><h3>Privacy-First Design</h3><p>This educational uses fictional data. .</p></div></div>
+    <div class="feature plain"><span class="icon-line" data-icon="chat"></span><div><h3>Easy Conversations</h3><p>Try fictional conversations at your own pace.</p></div></div>
+  </section>
+
+  <!-- MEET PEOPLE -->
+  <section id="meet" class="meet">
+    <div class="band-title">
+      <h2>Discover millennial matches</h2>
+      <p>Sample profiles inspired by millennials in their 30s and 40s.</p>
+      <a href="create.html" class="btn-outline">Join the Community <span data-icon="arrow"></span></a>
+    </div>
+    <div class="grid">
+      <div class="profile"><img src="/images/liam.jpg" alt="Fictional profile preview of Liam" loading="lazy"><div class="caption"><b>Liam, 39 <i class="dot"></i></b><span>Photography · Hiking · Film</span></div><span class="like" data-icon="heart" aria-hidden="true"></span></div>
+      <div class="profile"><img src="/images/sophie.jpg" alt="Fictional profile preview of Sophie" loading="lazy"><div class="caption"><b>Sophie, 34 <i class="dot"></i></b><span>Art · Cafés · Travel</span></div><span class="like" data-icon="heart" aria-hidden="true"></span></div>
+      <div class="profile"><img src="/images/noah.jpg" alt="Fictional profile preview of Noah" loading="lazy"><div class="caption"><b>Noah, 36 <i class="dot"></i></b><span>Gym · Music · Cooking</span></div><span class="like" data-icon="heart" aria-hidden="true"></span></div>
+      <div class="profile"><img src="/images/ella.jpg" alt="Fictional profile preview of Ella" loading="lazy"><div class="caption"><b>Ella, 32 <i class="dot"></i></b><span>Reading · Pilates · Nature</span></div><span class="like" data-icon="heart" aria-hidden="true"></span></div>
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <section id="safety" class="band tint">
+    <div class="feature plain"><span class="icon-line" data-icon="lock"></span><div><h3>Secure by Design</h3><p>This lab is secure. Do not submit sensitive personal information.</p></div></div>
+    <div class="feature plain"><span class="icon-line" data-icon="verified"></span><div><h3>Verified Profiles</h3><p>Verification badges represent fictional data.</p></div></div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div>
+    <a href="index.html" class="logo light"><span data-icon="heart"></span> Vinder</a>
+    <p>Fictional profiles.</p>
+  </div>
+  <div><h4>Company</h4><a href="#">About Vinder</a><a href="#">Careers</a><a href="#">Press</a></div>
+  <div><h4>Help &amp; Support</h4><a href="#">Help Center</a><a href="#">Safety Tips</a><a href="contact.html">Contact Us</a> <a href="status.html">Service Status</a></div>
+  <div><h4>Legal</h4><a href="#">Terms of Service</a><a href="#">Privacy Policy</a><a href="#">Cookie Policy</a></div>
+  <div class="social">
+    <div><a href="#">Instagram</a><a href="#">X</a><a href="#">Facebook</a><a href="#">YouTube</a></div>
+    <small>© 2026 Vinder </small>
+  </div>
+</footer>
+
+<script src="icons.js"></script>
+</body>
 </html>

@@ -2,9 +2,9 @@
 export const MY_PROFILE_STORAGE = 'vinder_demo_my_profile_v2';
 export const defaultMyProfile = {
   name: 'Jamie',
-  age: 25,
+  age: 36,
   city: 'Eindhoven',
-  work: 'Student',
+  work: 'Marketing specialist',
   bio: 'Coffee, weekend adventures and meeting interesting people. Always up for trying something new!',
   goal: 'Relationship',
   interests: ['Travel', 'Music', 'Coffee'],

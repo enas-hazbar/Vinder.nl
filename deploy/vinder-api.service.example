@@ -1,0 +1,22 @@
+# Example only. Update paths and user to match your approved Netlab deployment.
+[Unit]
+Description=Vinder educational demo API
+After=network.target
+[Service]
+Type=simple
+User=vinder
+Group=vinder
+WorkingDirectory=/opt/vinder-app
+ExecStart=/usr/bin/node server/app.mjs
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
+Environment=PORT=3001
+# Set COOKIE_SECURE=1 only when browser accesses the site via HTTPS.
+Environment=COOKIE_SECURE=1
+Restart=on-failure
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/opt/vinder-app/server/data
+[Install]
+WantedBy=multi-user.target
